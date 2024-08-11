@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBMinder</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+    <script src="/js/formulario.js" defer></script>
+    <script src="/js/modificar_tabla.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>DBMinder</h1>
+        <nav>
+            <a href="#crear_base_datos">Crear Base de Datos</a>
+            <a href="#eliminar_base_datos">Eliminar Base de Datos</a>
+            <a href="#crear_tabla">Crear Tabla</a>
+            <a href="#eliminar_tabla">Eliminar Tabla</a>
+            <a href="#modificar_tabla">Modificar Tabla</a>
+            <a href="#ver_bases_datos">Ver Bases de Datos</a>
+            <a href="#ver_tablas">Ver Tablas</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="crear_base_datos">
+            <h2>Crear Base de Datos</h2>
+            <form action="/crear-base-datos" method="POST">
+                <label for="nombreBaseDatos">Nombre de la base de datos:</label>
+                <input type="text" id="nombreBaseDatos" name="nombreBaseDatos" required>
+                <button class="btn btn-primary" type="submit">Crear</button>
+            </form>
+        </section>
+
+        <section id="eliminar_base_datos">
+            <h2>Eliminar Base de Datos</h2>
+            <form action="/eliminar-base-datos" method="POST">
+                <label for="nombreBaseDatosEliminar">Nombre de la base de datos:</label>
+                <input type="text" id="nombreBaseDatosEliminar" name="nombreBaseDatos" required>
+                <button class="btn btn-danger" type="submit">Eliminar</button>
+            </form>
+        </section>
+
+        <section id="crear_tabla">
+            <h2>Crear Tabla</h2>
+            <form action="/crear-tabla" method="POST">
+                <label for="nombreBaseDatos">Nombre de la base de datos:</label>
+                <input type="text" id="nombreBaseDatos" name="nombreBaseDatos" required>
+
+                <label for="nombreTabla">Nombre de la tabla:</label>
+                <input type="text" id="nombreTabla" name="nombreTabla" required>
+
+                <div id="columnas">
+                    <!-- Campos de columna iniciales -->
+                    <div class="columna">
+                        <label for="nombreColumna1">Nombre de la columna:</label>
+                        <input type="text" id="nombreColumna1" name="nombreColumna[]" required>
+                        
+                        <label for="tipoColumna1">Tipo de la columna:</label>
+                        <input type="text" id="tipoColumna1" name="tipoColumna[]" required>
+                        
+                        <label for="opcionesColumna1">Opciones de la columna:</label>
+                        <input type="text" id="opcionesColumna1" name="opcionesColumna[]">
+                        
+                        <button type="button" class="btn btn-danger eliminarColumna">Eliminar</button>
+                    </div>
+                </div>
+
+                <button type="button" id="agregarColumna" class="btn btn-secondary">Agregar Columna</button>
+                <button class="btn btn-primary" type="submit">Crear</button>
+            </form>
+        </section>
+
+        <section id="eliminar_tabla">
+            <h2>Eliminar Tabla</h2>
+            <form action="/eliminar-tabla" method="POST">
+                <label for="nombreTablaEliminar">Nombre de la tabla:</label>
+                <input type="text" id="nombreTablaEliminar" name="nombreTabla" required>
+                <button class="btn btn-danger" type="submit">Eliminar</button>
+            </form>
+        </section>
+
+        <section id="modificar_tabla">
+            <h2>Modificar Tabla</h2>
+            <form action="/modificar-tabla" method="POST">
+                <label for="nombreTablaModificar">Nombre de la tabla:</label>
+                <input type="text" id="nombreTablaModificar" name="nombreTabla" required>
+    
+                <h3>Modificar Columnas</h3>
+                <div id="columnasContainer">
+                    <!-- Campos para modificar columnas se añadirán aquí dinámicamente -->
+                </div>
+                <button type="button" id="addColumn">Agregar Columna</button>
+    
+                <button class="btn btn-warning" type="submit">Modificar</button>
+            </form>
+        </section>
+
+        <section id="ver_datos_tabla">
+            <h2>Visualizar Datos de una Tabla</h2>
+            <form action="/mostrar-datos" method="GET">
+                <label for="nombreBaseDatos">Nombre de la base de datos:</label>
+                <input type="text" id="nombreBaseDatos" name="nombreBaseDeDatos" required>
+        
+                <label for="nombreTabla">Nombre de la tabla:</label>
+                <input type="text" id="nombreTabla" name="nombreTabla" required>
+        
+                <button class="btn btn-info" type="submit">Ver Datos</button>
+            </form>
+        </section>
+
+        <section id="ver_tablas">
+            <h2>Visualizar Tablas</h2>
+            <form action="/tablas" method="POST">
+                <label for="nombreBaseDatosVisualizar">Nombre de la base de datos:</label>
+                <input type="text" id="nombreBaseDatosVisualizar" name="nombreBaseDatos" required>
+                <button class="btn btn-info" type="submit">Ver Tablas</button>
+            </form>
+        </section>
+
+        <div class="centered-content">
+            <h2>Visualizar Bases de Datos</h2>
+            <a href="/basesDatos" class="btn btn-secondary">Ver</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 DBMinder Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+
+</html>

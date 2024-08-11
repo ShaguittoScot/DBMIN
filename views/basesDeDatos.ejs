@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bases de Datos</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Bases de Datos</h1>
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/crear-base-datos">Crear Base de Datos</a>
+            <a href="/eliminar-base-datos">Eliminar Base de Datos</a>
+            <a href="/crear-tabla">Crear Tabla</a>
+            <a href="/eliminar-tabla">Eliminar Tabla</a>
+            <a href="/modificar-tabla">Modificar Tabla</a>
+            <a href="/ver-tablas">Ver Tablas</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Lista de Bases de Datos</h2>
+        <ul>
+            <% bases.forEach(base => { %>
+                <li><%= base.Database %></li>
+            <% }) %>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 DBMinder Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

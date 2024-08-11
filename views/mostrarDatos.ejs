@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos de la Tabla <%= nombreTabla %></title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Datos de la Tabla <%= nombreTabla %></h1>
+    </header>
+    <main>
+        <section class="table-container">
+            <table>
+                <caption>Datos de la Tabla <%= nombreTabla %></caption>
+                <thead>
+                    <tr>
+                        <% Object.keys(datos[0]).forEach(columna => { %>
+                            <th><%= columna %></th>
+                        <% }); %>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% datos.forEach(fila => { %>
+                        <tr>
+                            <% Object.keys(fila).forEach(campo => { %>
+                                <td><%= fila[campo] %></td>
+                            <% }); %>
+                            <td>
+                                <a href="/editar-dato?id=<%= fila.id %>&nombreBaseDeDatos=<%= nombreBaseDeDatos %>&nombreTabla=<%= nombreTabla %>">Editar</a>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 DBMinder Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
